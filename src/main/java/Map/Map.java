@@ -9,7 +9,7 @@ public class Map {
     public static void main(String[] args) {
         List<String> listOfStrings = Arrays.asList("1", "2", "3", "4", "5");
         List<Integer> ls = listOfStrings.stream().map(Integer::valueOf).collect(Collectors.toList());
-        System.out.println(ls);
+      //  System.out.println(ls);
 
         /*The Stream.flatMap() function, as the name suggests, is the combination of a map and a flat operation. This means you first apply the map function and then flatten the result.
         To understand what flattening a stream consists in,
@@ -22,11 +22,11 @@ public class Map {
         List<Integer> primes = Arrays.asList(2, 3, 5, 7, 11);
         List<Integer> flat = Stream.of(evens,odds, primes).flatMap(
                 list->list.stream()).collect(Collectors.toList());
-        System.out.println(flat);
+     //   System.out.println(flat);
 
         // sum of all the elements in arraylist
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
-        int sum =  numbers.stream().mapToInt(Integer::intValue).sum();
+        int sum =  numbers.stream().reduce(0, Integer::sum);
         System.out.println(sum);
 
 
