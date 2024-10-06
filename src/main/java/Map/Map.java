@@ -24,5 +24,13 @@ public class Map {
                 list->list.stream()).collect(Collectors.toList());
         System.out.println(flat);
 
+        // sum of all the elements in arraylist
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        int sum =  numbers.stream().mapToInt(Integer::intValue).sum();
+        System.out.println(sum);
+
+
+
+
     }
 }
