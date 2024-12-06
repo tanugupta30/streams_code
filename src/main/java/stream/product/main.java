@@ -15,7 +15,12 @@ public class main {
         productsList.add(new Product(4, "Sony Laptop", 28000f));
         productsList.add(new Product(5, "Apple Laptop", 90000f));
 
+        //System.out.print("remove"+ productsList.remove(4));
+       List<Product> ans=  productsList.stream().filter(e->e.getPrice()<30000)
+               .map(l->new Product(l.getId(), l.getName(), l.getPrice()+20000))
+               .collect(Collectors.toList());
 
+ System.out.print("price: "+ ans);
         /*Q1: get the Name of assest whose price is 30000 by using streams */
         productsList.stream().filter( p->p.getPrice()==30000)
                 .forEach(e-> System.out.println(e.getName()));
@@ -35,6 +40,8 @@ public class main {
                 .min((product1, product2) -> product1.getPrice() > product2.getPrice() ? 1 : -1).get();
         System.out.println(productB);
 
+        List<Product> prodList = productsList.stream().filter(p->String.valueOf(p.getId()).startsWith("4")).filter(p->p.getPrice()<30000).collect(Collectors.toList());
+        System.out.println("start with"+prodList);
 
 
 
